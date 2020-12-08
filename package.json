@@ -12,7 +12,8 @@
     "production": "npm run build && node server/product-server.js",
     "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog": "conventional-changelog -p atom -i CHANGELOG.md -s",
-    "release": "git add . & standard-version"
+    "release": "git add . & standard-version",
+    "fix": "tslint src/**/*.ts --fix"
   },
   "keywords": [
     "angular",
