@@ -1,8 +1,11 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "tslint-plugin-prettier"
   ],
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rules": {
+    "prettier": true,
     "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
     "no-input-rename": true,
     "no-output-on-prefix": true,
