@@ -12,8 +12,10 @@
     "production": "npm run build && node server/product-server.js",
     "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog": "conventional-changelog -p atom -i CHANGELOG.md -s",
-    "release": "git add . & standard-version",
-    "fix": "tslint src/**/*.ts --fix"
+    "lint": "tslint src/**/*.ts",
+    "fix": "tslint src/**/*.ts --fix",
+    "commit:all": "git add . & cz",
+    "commit": "cz"
   },
   "keywords": [
     "angular",
@@ -56,6 +58,7 @@
     "cross-env": "5.2.0",
     "css-loader": "2.1.1",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "enhanced-resolve": "4.1.0",
     "eventsource-polyfill": "0.9.6",
     "express": "4.17.1",
@@ -106,12 +109,12 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged & npm run lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
